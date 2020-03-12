@@ -1,0 +1,58 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Demo</title>
+</head>
+<body>
+
+<div id="table" border="solid 1px #CCCCCC" onload="blabla()"></div>
+<script>
+(function blabla() {
+  var newXHR;
+
+  // Helper function to make XMLHttpRequest without using jQuery or AngularJS $http service.
+  function sendXHR(options) {
+    //       (Modern browsers)    OR (Internet Explorer 5 or 6).
+    newXHR = new XMLHttpRequest() || new ActiveXObject("Microsoft.XMLHTTP");
+    if (options.sendJSON === true) {
+      options.contentType = "application/json; charset=utf-8";
+      options.data = JSON.stringify(options.data);
+    } else {
+      options.contentType = "application/x-www-form-urlencoded";
+    }
+    newXHR.open(options.type, options.url, options.async || true);
+    newXHR.setRequestHeader("Content-Type", options.contentType);
+    newXHR.send((options.type == "POST") ? options.data : null);
+    newXHR.onreadystatechange = options.callback; // Will executes a function when the HTTP request state changes.
+    return newXHR;
+  }
+
+  // Call the WebService by using the helper function.
+  sendXHR({
+    type: "GET",
+    url: "https://crossorigin.me/http://finance.yahoo.com/webservice/v1/symbols/%5EIXIC/quote?format=json&view=detail",
+    callback: function() {
+      if (newXHR.readyState === 4 && newXHR.status === 200) {
+        var data = JSON.parse(newXHR.response); // Store the WebServices JSON data to the «data» variable.
+
+        var table = document.getElementById("table"); // Get the table.
+
+        // Build the HTML table.
+        var html = "<table><thead>";
+        html += "<th>Name</th><th>Price</th>";
+        html += "</thead>";
+        html += "<tbody>";
+        for (i = 0; i < data.list.resources.length; i++) {
+          html += "<tr><td>" + data.list.resources[i].resource.fields.name + "</td><td>" + data.list.resources[i].resource.fields.price + "</td></tr>";
+        }
+        html += "</tbody></table>";
+        table.innerHTML = html;
+      }
+    }
+  });
+})();
+
+</script>
+</body>
+</html>
