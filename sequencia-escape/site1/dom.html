@@ -1,0 +1,43 @@
+//DOM NÍVEL 2
+//MÓDULO CODE (API diferenciadas para manipular XML/HTML ex:getElementById)
+// Views (área de visão do documento)
+//Events (Eventos)
+
+//DOM nível 3
+//suporte a XPath e manipulação de evento pelo teclado, bem como uma interface para serialização de documentos como XML
+
+//DOM nível 4: 
+//Mutation Observers (Observadores de mudança) como um substituo para Mutation Events
+<html>
+    <head>
+        <!-- meta,title e script são irmãos e filhos de head-->
+        <meta>
+        <title>Coiso</title>
+    <script>  </script> 
+    </head>
+<!-- head e body são irmãos-->
+    <body>
+        <header></header>
+        <div>
+            <h1>Filho de Div</h1>
+            <p>Filgo de Div</p>
+
+        </div>  
+        <footer>
+        </footer>      
+</html>
+
+-Pesquisa e recuperação de elementos
+getElementById
+getElementsByTagName
+getElementsByName (pesquisar por imagens)
+getElembentsByClassName (pesquisar grupo de elementos na estrutura)
+querySelector (recuperar um elemento especifico)
+querySelectorAll (recurperar grupos)
+
+OBS: Pode retornar HTMLElement, HTMLCollection e NodeList(podemos obter os nodes)
+
+<!--  Criar adicionar remover e substituir elementos-->
+createElement (pai) e createTextNode (pode have node texto)
+appendChild (inserir filhos no pai) e insertBefore (innerHtml)
+removeChild e replaceChild (remover filhos ou substituir)
