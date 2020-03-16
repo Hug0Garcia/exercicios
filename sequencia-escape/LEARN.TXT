@@ -1,0 +1,58 @@
+#Advanced Javascript features
+-forEach
+map
+filter
+reduce
+
+#Arrow functions
+-clean
+-this
+
+#this
+
+
+#ES6 Modules
+- Import
+- Export
+
+#Promises
+-Async/Await
+- Fetch API
+
+#Destructing
+- Cleaner
+    const name = user.name;   const age = user.age;
+    const {name,age} = user
+
+#Classes 
+- structure
+- Constructors
+- Methos/Properties
+- Instantiation
+- Extending
+
+#Separation of Concerns
+Components
+    "The user interface is broken up into individual Components"
+    - Navbar
+    - Menu
+    - Main
+
+State
+"The Components state is usually data or its state of being"
+- Menu Open vs Closed
+
+#Spread Operator
+"Usually, stat is immutable. A copy must be made"
+const state = {
+    name: "John";
+}
+const newState = {
+    ...state,
+    age:30
+}
+
+Misc
+- TypeScript (Angular)
+- Wbpack & Babel
+- DOM Manipulation (Optional)
