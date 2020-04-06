@@ -1,0 +1,13 @@
+{
+  "name": "app-babel",
+  "version": "1.0.0",
+  "description": "teste com babel",
+  "main": "index.js",
+  "scripts": {},
+  "author": "HG",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.7.0"
+  }
+}
